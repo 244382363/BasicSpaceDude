@@ -13,9 +13,15 @@ namespace BasicSpaceDude
 
         // Class Variables
         Background bg;
+        //coment
 
         // An array of dudes
         FloatyDude dude;
+
+        //create a variable called "dudes" that is an array (collection) of 
+        //variables of type FloatyDude
+        FloatyDude[] dudes;
+
 
         public Game1()
         {
@@ -26,6 +32,8 @@ namespace BasicSpaceDude
 
         protected override void Initialize()
         {
+            //specify that dudes has space for 100 dudes
+            dudes = new FloatyDude[100];
             base.Initialize();
         }
 
@@ -39,12 +47,12 @@ namespace BasicSpaceDude
                                                     GraphicsDevice.Viewport.Bounds.Center.Y + RNG.Next(-100, 100));
             Vector2 startVel = new Vector2((float)(RNG.NextDouble() * 2) - 1,
                                                     (float)(RNG.NextDouble() * 2) - 1);
-            dude = new FloatyDude(Content.Load<Texture2D>("dude0"), startPos, startVel);
+            dudes[0] = new FloatyDude(Content.Load<Texture2D>("dude0"), startPos, startVel);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            dude.UpdateMe(GraphicsDevice.Viewport.Bounds);
+            dudes[0].UpdateMe(GraphicsDevice.Viewport.Bounds);
 
             base.Update(gameTime);
         }
@@ -56,7 +64,7 @@ namespace BasicSpaceDude
             _spriteBatch.Begin();
             bg.DrawMe(_spriteBatch);
 
-            dude.DrawMe(_spriteBatch);
+            dudes[0].DrawMe(_spriteBatch);
 
             _spriteBatch.End();
 
