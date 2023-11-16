@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace BasicSpaceDude
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        public MouseState _mstate;
 
         public static readonly Random RNG = new Random();
 
@@ -59,6 +61,8 @@ namespace BasicSpaceDude
 
         protected override void Update(GameTime gameTime)
         {
+            _mstate = Mouse.GetState();
+
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
                 dudes.Add(new FloatyDude(cotent.Load<Texture2D>("dude"+nextDudeColour)));

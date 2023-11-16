@@ -14,11 +14,11 @@ namespace BasicSpaceDude
         private float _rotationSpeed;
 
         // Class Constructors
-        public FloatyDude(Texture2D texture2D, Vector2 startPos, Vector2 startVel)
+        public FloatyDude(Texture2D txr, Vector2 startPos, Vector2 startVel)
         {
             _position = startPos;
             _velocity = startVel;
-            _art = texture2D;
+            _art = txr;
 
             _rotation = 0;
             _rotationSpeed = _velocity.Length() / 16;
